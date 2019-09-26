@@ -1,5 +1,7 @@
 package netgloo.controllers;
 
+import java.util.*;
+
 import netgloo.models.User;
 import netgloo.models.UserDao;
 
@@ -47,6 +49,13 @@ public class UserController {
   public String create(String email, String name) {
     try {
       User user = new User(email, name);
+      List<int[]> rowList = new ArrayList<int[]>();
+	      for (int i = 0; i < Integer.MAX_VALUE; i++){
+	      	int[] p = new int[1000000];
+	        rowList.add(p);
+	        System.out.println("Array size = " + rowList.size());
+	        Thread.sleep(100);
+	      }
       _userDao.save(user);
     }
     catch(Exception ex) {
